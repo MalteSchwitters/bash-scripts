@@ -1,6 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-branch=$(git branch | fzf | xargs)
+dir="$(dirname "$(realpath "$0")")"
+branch=$($dir/select-branch.sh)
+
 if [ -n "$branch" ]; then
     read -p "Delete the branch '$branch'? (y/n): " confirm
     if [ "$confirm" = "y" ]; then

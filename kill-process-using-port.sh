@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/sh
+
 pid=$(lsof -i tcp:$1 | awk 'NR!=1 {print $2}')
 command=$(lsof -i tcp:$1 | awk 'NR!=1 {print $1}')
 
